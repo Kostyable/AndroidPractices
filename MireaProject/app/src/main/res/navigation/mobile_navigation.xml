@@ -17,4 +17,10 @@
         android:label="@string/webView"
         tools:layout="@layout/fragment_web_view" />
 
+    <fragment
+        android:id="@+id/worker_fragment"
+        android:name="ru.mirea.blinnikovkm.mireaproject.WorkerFragment"
+        android:label="Forum"
+        tools:layout="@layout/fragment_worker" />
+
 </navigation>

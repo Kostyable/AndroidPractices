@@ -12,5 +12,9 @@
             android:id="@+id/nav_webView"
             android:icon="@drawable/baseline_browser_updated_24"
             android:title="@string/webView" />
+        <item
+            android:id="@+id/worker_fragment"
+            android:icon="@drawable/baseline_forum_24"
+            android:title="Forum" />
     </group>
 </menu>
