@@ -10,9 +10,12 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-<!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="browser">Browser</string>
     <string name="webView">WebView</string>
     <string name="data">Data</string>
+    <string name="forum">Forum</string>
+    <string name="ageImage">Age Image</string>
+    <string name="audioChanger">Audio Changer</string>
+    <string name="hygrometer">Hygrometer</string>
 </resources>

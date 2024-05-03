@@ -15,6 +15,18 @@
         <item
             android:id="@+id/worker_fragment"
             android:icon="@drawable/baseline_forum_24"
-            android:title="Forum" />
+            android:title="@string/forum" />
+        <item
+            android:id="@+id/nav_age_image"
+            android:icon="@drawable/baseline_camera_24"
+            android:title="@string/ageImage" />
+        <item
+            android:id="@+id/nav_audio_changer"
+            android:icon="@drawable/baseline_audiotrack_24"
+            android:title="@string/audioChanger" />
+        <item
+            android:id="@+id/nav_hygrometer"
+            android:icon="@drawable/baseline_gps_fixed_24"
+            android:title="@string/hygrometer" />
     </group>
 </menu>

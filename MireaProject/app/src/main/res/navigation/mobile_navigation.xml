@@ -20,7 +20,25 @@
     <fragment
         android:id="@+id/worker_fragment"
         android:name="ru.mirea.blinnikovkm.mireaproject.WorkerFragment"
-        android:label="Forum"
+        android:label="@string/forum"
         tools:layout="@layout/fragment_worker" />
+
+    <fragment
+        android:id="@+id/nav_age_image"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.ageimage.AgeImageFragment"
+        android:label="@string/ageImage"
+        tools:layout="@layout/fragment_age_image" />
+
+    <fragment
+        android:id="@+id/nav_audio_changer"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.audiochanger.AudioChangerFragment"
+        android:label="@string/audioChanger"
+        tools:layout="@layout/fragment_audio_changer" />
+
+    <fragment
+        android:id="@+id/nav_hygrometer"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.hygrometer.HygrometerFragment"
+        android:label="@string/hygrometer"
+        tools:layout="@layout/fragment_hygrometer" />
 
 </navigation>
