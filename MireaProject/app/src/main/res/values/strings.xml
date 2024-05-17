@@ -18,4 +18,6 @@
     <string name="ageImage">Age Image</string>
     <string name="audioChanger">Audio Changer</string>
     <string name="hygrometer">Hygrometer</string>
+    <string name="profile">Profile</string>
+    <string name="fileEncryption">File Encryption</string>
 </resources>

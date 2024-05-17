@@ -28,5 +28,13 @@
             android:id="@+id/nav_hygrometer"
             android:icon="@drawable/baseline_gps_fixed_24"
             android:title="@string/hygrometer" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/baseline_emoji_people_24"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_file_processing"
+            android:icon="@drawable/baseline_enhanced_encryption_24"
+            android:title="@string/fileEncryption" />
     </group>
 </menu>

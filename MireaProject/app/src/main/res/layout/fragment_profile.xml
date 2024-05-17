@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_dynamic_neutral_variant20"
+    tools:context=".ui.profile.ProfileFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/profileTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Ваш профиль"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/firstNameEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/white"
+            android:hint="Имя"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/material_dynamic_neutral60"
+            android:textCursorDrawable="@drawable/custom_cursor" />
+
+        <EditText
+            android:id="@+id/lastNameEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/white"
+            android:hint="Фамилия"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/material_dynamic_neutral60"
+            android:textCursorDrawable="@drawable/custom_cursor" />
+
+        <EditText
+            android:id="@+id/dateOfBirthEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/white"
+            android:hint="Дата рождения"
+            android:inputType="date"
+            android:textColor="@color/white"
+            android:textColorHint="@color/material_dynamic_neutral60"
+            android:textCursorDrawable="@drawable/custom_cursor" />
+
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:buttonTint="@color/white"
+                android:checked="true"
+                android:text="Мужской"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:buttonTint="@color/white"
+                android:text="Женский"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/emailAddressEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/white"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/material_dynamic_neutral60"
+            android:textCursorDrawable="@drawable/custom_cursor" />
+
+        <Button
+            android:id="@+id/saveDataButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/material_dynamic_neutral_variant50"
+            android:text="Сохранить данные" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_dynamic_neutral_variant20"
     tools:context=".ui.data.DataFragment">
-
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/forumTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="Мобильная разработка"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textview.MaterialTextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="\nМобильная разработка - это процесс создания приложений и программного обеспечения, специально предназначенного для использования на мобильных устройствах, таких как смартфоны и планшеты. Эта область развития программного обеспечения стала критически важной в связи с ростом популярности мобильных устройств в последние десятилетия. Сегодня миллиарды людей по всему миру зависят от мобильных приложений для выполнения различных задач - от общения до банковских операций и работы.
+        android:layout_height="match_parent">
 
-\n\nМобильная разработка включает в себя различные аспекты, начиная от выбора подходящей платформы (iOS, Android, Windows) и инструментов разработки (как нативные, так и кроссплатформенные), до проектирования пользовательского интерфейса, программирования, тестирования и развертывания. Разработчики мобильных приложений должны учитывать ограничения мобильных устройств, такие как размер экрана, производительность и энергопотребление, чтобы создать оптимизированные и удобные в использовании приложения.
+        <TextView
+            android:id="@+id/dataTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Мобильная разработка"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-\n\nС появлением новых технологий, таких как искусственный интеллект, расширенная реальность и блокчейн, мобильная разработка продолжает эволюционировать, открывая новые возможности для создания инновационных и полезных приложений, которые удовлетворяют растущие потребности пользователей. В целом, мобильная разработка играет ключевую роль в формировании современного цифрового ландшафта, предоставляя людям доступ к информации, развлечениям и сервисам на ходу.\n"
-        android:textColor="@color/material_dynamic_neutral60"
-        app:layout_constraintTop_toBottomOf="@+id/forumTitle"
-        tools:layout_editor_absoluteX="0dp"
-        android:layout_marginStart="25sp"
-        android:layout_marginEnd="25sp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/dataTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="Мобильная разработка - это процесс создания приложений и программного обеспечения, специально предназначенного для использования на мобильных устройствах, таких как смартфоны и планшеты. Эта область развития программного обеспечения стала критически важной в связи с ростом популярности мобильных устройств в последние десятилетия. Сегодня миллиарды людей по всему миру зависят от мобильных приложений для выполнения различных задач - от общения до банковских операций и работы.\n\nМобильная разработка включает в себя различные аспекты, начиная от выбора подходящей платформы (iOS, Android, Windows) и инструментов разработки (как нативные, так и кроссплатформенные), до проектирования пользовательского интерфейса, программирования, тестирования и развертывания. Разработчики мобильных приложений должны учитывать ограничения мобильных устройств, такие как размер экрана, производительность и энергопотребление, чтобы создать оптимизированные и удобные в использовании приложения.\n\nС появлением новых технологий, таких как искусственный интеллект, расширенная реальность и блокчейн, мобильная разработка продолжает эволюционировать, открывая новые возможности для создания инновационных и полезных приложений, которые удовлетворяют растущие потребности пользователей. В целом, мобильная разработка играет ключевую роль в формировании современного цифрового ландшафта, предоставляя людям доступ к информации, развлечениям и сервисам на ходу."
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataTitle"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

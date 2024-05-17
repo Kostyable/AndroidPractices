@@ -1,15 +1,15 @@
-package ru.mirea.blinnikovkm.mireaproject.ui.webview;
+package ru.mirea.blinnikovkm.mireaproject.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class WebViewViewModel extends ViewModel {
+public class ProfileViewModel extends ViewModel {
     private final MutableLiveData<String> mText;
 
-    public WebViewViewModel() {
+    public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is browser fragment");
+        mText.setValue("This is profile fragment");
     }
 
     public LiveData<String> getText() {

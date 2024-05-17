@@ -5,20 +5,42 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
-    tools:context=".MainActivity">
+    android:background="@color/material_dynamic_neutral_variant20"
+    tools:context=".ui.audiochanger.AudioChangerFragment">
+
+    <TextView
+        android:id="@+id/audioChangerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Изменитель аудио"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/recordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="476dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant50"
         android:text="Запись"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
+        app:layout_constraintBottom_toTopOf="@+id/speedSlider"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant50"
+        android:text="Воспроизведение"
+        app:layout_constraintBottom_toTopOf="@+id/speedSlider"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <SeekBar
         android:id="@+id/speedSlider"
@@ -28,10 +50,13 @@
         android:layout_marginEnd="50dp"
         android:max="4"
         android:progress="2"
-        app:layout_constraintBottom_toTopOf="@+id/pitchSlider"
+        android:progressBackgroundTint="@color/black"
+        android:progressTint="@color/material_dynamic_neutral60"
+        android:thumbTint="@color/material_dynamic_neutral60"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recordButton"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -139,25 +164,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="50dp"
         android:max="24"
         android:progress="12"
-        app:layout_constraintBottom_toTopOf="@+id/playButton"
+        android:progressBackgroundTint="@color/black"
+        android:progressTint="@color/material_dynamic_neutral60"
+        android:thumbTint="@color/material_dynamic_neutral60"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recordButton"
+        app:layout_constraintTop_toBottomOf="@+id/speed1TextView"
         tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="216dp"
-        android:text="Воспроизведение"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

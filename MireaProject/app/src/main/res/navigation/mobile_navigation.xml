@@ -41,4 +41,16 @@
         android:label="@string/hygrometer"
         tools:layout="@layout/fragment_hygrometer" />
 
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_file_processing"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.fileprocessing.FileProcessingFragment"
+        android:label="@string/fileEncryption"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>
