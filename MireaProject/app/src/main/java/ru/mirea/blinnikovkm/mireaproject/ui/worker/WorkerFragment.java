@@ -1,4 +1,4 @@
-package ru.mirea.blinnikovkm.mireaproject;
+package ru.mirea.blinnikovkm.mireaproject.ui.worker;
 
 import android.os.Bundle;
 
@@ -16,7 +16,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import ru.mirea.blinnikovkm.mireaproject.ui.ForumWorker;
+import ru.mirea.blinnikovkm.mireaproject.R;
+import ru.mirea.blinnikovkm.mireaproject.ForumWorker;
 
 public class WorkerFragment extends Fragment {
 

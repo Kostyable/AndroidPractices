@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_web_view" />
 
     <fragment
-        android:id="@+id/worker_fragment"
-        android:name="ru.mirea.blinnikovkm.mireaproject.WorkerFragment"
+        android:id="@+id/nav_worker"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.worker.WorkerFragment"
         android:label="@string/forum"
         tools:layout="@layout/fragment_worker" />
 
@@ -58,5 +58,11 @@
         android:name="ru.mirea.blinnikovkm.mireaproject.ui.yearinhistory.YearInHistoryFragment"
         android:label="@string/year_in_history"
         tools:layout="@layout/fragment_year_in_history" />
+
+    <fragment
+        android:id="@+id/nav_establishments"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.establishments.EstablishmentsFragment"
+        android:label="@string/establishments"
+        tools:layout="@layout/fragment_establishments" />
 
 </navigation>

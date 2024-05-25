@@ -1,4 +1,4 @@
-package ru.mirea.blinnikovkm.mireaproject.ui;
+package ru.mirea.blinnikovkm.mireaproject;
 
 import android.content.Context;
 import android.util.Log;

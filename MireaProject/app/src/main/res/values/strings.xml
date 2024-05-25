@@ -21,6 +21,7 @@
     <string name="profile">Profile</string>
     <string name="file_encryption">File Encryption</string>
     <string name="year_in_history">Year In History</string>
+    <string name="establishments">Establishments</string>
 
     <string name="label_emailpassword">Email/Password Authentication</string>
     <string name="desc_emailpassword">Use an email and password to authenticate with Firebase.
@@ -38,4 +39,8 @@
     <string name="emailpassword_status_fmt">Email User: %1$s (verified: %2$b)</string>
     <string name="emailpassword_title_text">Email and Password</string>
     <string name="error_sign_in_failed">Sign in failed, see logs for details.</string>
+
+    <string name="unknown_error_message">Неизвестная ошибка</string>
+    <string name="remote_error_message">Удаленная ошибка</string>
+    <string name="network_error_message">Ошибка с сетью</string>
 </resources>

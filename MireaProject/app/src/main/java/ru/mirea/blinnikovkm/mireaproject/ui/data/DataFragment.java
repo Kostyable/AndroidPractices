@@ -19,13 +19,8 @@ public class DataFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DataViewModel dataViewModel =
-                new ViewModelProvider(this).get(DataViewModel.class);
-
         binding = FragmentDataBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        return root;
+        return binding.getRoot();
     }
 
     @Override

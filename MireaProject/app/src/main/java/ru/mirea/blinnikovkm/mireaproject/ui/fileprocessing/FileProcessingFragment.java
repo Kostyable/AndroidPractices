@@ -83,6 +83,7 @@ public class FileProcessingFragment extends Fragment {
                 if (fileName.isEmpty()) {
                     Toast.makeText(requireContext(), "Пожалуйста, введите имя файла",
                             Toast.LENGTH_SHORT).show();
+                    binding.fileTextEditText.setText("");
                     return;
                 }
                 File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
@@ -90,6 +91,7 @@ public class FileProcessingFragment extends Fragment {
                 if (!file.exists()) {
                     Toast.makeText(requireContext(), "Файла с таким именем не существует",
                             Toast.LENGTH_SHORT).show();
+                    binding.fileTextEditText.setText("");
                     return;
                 }
                 String stringLines = "";

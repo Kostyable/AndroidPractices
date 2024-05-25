@@ -1,7 +1,6 @@
 package ru.mirea.blinnikovkm.mireaproject.ui.webview;
 
-import androidx.lifecycle.ViewModelProvider;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,11 +17,9 @@ public class WebViewFragment extends Fragment {
 
     private FragmentWebViewBinding binding;
 
+    @SuppressLint("SetJavaScriptEnabled")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        WebViewViewModel webViewViewModel =
-                new ViewModelProvider(this).get(WebViewViewModel.class);
-
         binding = FragmentWebViewBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         binding.webView.setWebViewClient(new WebViewClient());
