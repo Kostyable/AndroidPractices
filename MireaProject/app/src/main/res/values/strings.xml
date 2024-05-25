@@ -12,12 +12,30 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="browser">Browser</string>
-    <string name="webView">WebView</string>
+    <string name="web_view">WebView</string>
     <string name="data">Data</string>
     <string name="forum">Forum</string>
-    <string name="ageImage">Age Image</string>
-    <string name="audioChanger">Audio Changer</string>
+    <string name="age_image">Age Image</string>
+    <string name="audio_changer">Audio Changer</string>
     <string name="hygrometer">Hygrometer</string>
     <string name="profile">Profile</string>
-    <string name="fileEncryption">File Encryption</string>
+    <string name="file_encryption">File Encryption</string>
+    <string name="year_in_history">Year In History</string>
+
+    <string name="label_emailpassword">Email/Password Authentication</string>
+    <string name="desc_emailpassword">Use an email and password to authenticate with Firebase.
+    </string>
+    <string name="hint_user_id">User ID</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="verify_email">Verify Email</string>
+    <string name="signed_in">Signed In</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="auth_failed">Authentication failed</string>
+    <string name="firebase_status_fmt">Firebase UID: %s</string>
+    <string name="firebase_user_management">Firebase User Management</string>
+    <string name="emailpassword_status_fmt">Email User: %1$s (verified: %2$b)</string>
+    <string name="emailpassword_title_text">Email and Password</string>
+    <string name="error_sign_in_failed">Sign in failed, see logs for details.</string>
 </resources>

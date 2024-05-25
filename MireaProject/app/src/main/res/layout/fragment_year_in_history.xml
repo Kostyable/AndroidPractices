@@ -5,40 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_dynamic_neutral_variant20"
-    tools:context=".ui.hygrometer.HygrometerFragment">
+    tools:context=".ui.yearinhistory.YearInHistoryFragment">
 
     <TextView
-        android:id="@+id/humidityTitle"
+        android:id="@+id/yearInHistoryTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Гидрометр"
+        android:text="Год в истории"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/humidityButton"
+    <EditText
+        android:id="@+id/yearEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/white"
+        android:hint="Введите год..."
+        android:inputType="numberSigned"
+        android:textColor="@color/white"
+        android:textColorHint="@color/material_dynamic_neutral60"
+        android:textCursorDrawable="@drawable/custom_cursor"
+        app:layout_constraintBottom_toTopOf="@+id/getYearInfoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/getYearInfoButton"
+        android:layout_width="238dp"
+        android:layout_height="63dp"
         android:backgroundTint="@color/material_dynamic_neutral50"
-        android:text="Узнать влажность"
+        android:text="Что было?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/humidityTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/yearInfoTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="30dp"
-        android:textColor="#FFFFFF"
+        android:layout_marginEnd="25dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/humidityButton" />
+        app:layout_constraintTop_toBottomOf="@+id/getYearInfoButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

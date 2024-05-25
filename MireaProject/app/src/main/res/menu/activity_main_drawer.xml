@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_webView"
             android:icon="@drawable/baseline_browser_updated_24"
-            android:title="@string/webView" />
+            android:title="@string/web_view" />
         <item
             android:id="@+id/worker_fragment"
             android:icon="@drawable/baseline_forum_24"
@@ -19,11 +19,11 @@
         <item
             android:id="@+id/nav_age_image"
             android:icon="@drawable/baseline_camera_24"
-            android:title="@string/ageImage" />
+            android:title="@string/age_image" />
         <item
             android:id="@+id/nav_audio_changer"
             android:icon="@drawable/baseline_audiotrack_24"
-            android:title="@string/audioChanger" />
+            android:title="@string/audio_changer" />
         <item
             android:id="@+id/nav_hygrometer"
             android:icon="@drawable/baseline_gps_fixed_24"
@@ -35,6 +35,10 @@
         <item
             android:id="@+id/nav_file_processing"
             android:icon="@drawable/baseline_enhanced_encryption_24"
-            android:title="@string/fileEncryption" />
+            android:title="@string/file_encryption" />
+        <item
+            android:id="@+id/nav_year_in_history"
+            android:icon="@drawable/baseline_menu_book_24"
+            android:title="@string/year_in_history" />
     </group>
 </menu>

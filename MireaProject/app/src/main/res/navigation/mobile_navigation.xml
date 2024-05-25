@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_webView"
         android:name="ru.mirea.blinnikovkm.mireaproject.ui.webview.WebViewFragment"
-        android:label="@string/webView"
+        android:label="@string/web_view"
         tools:layout="@layout/fragment_web_view" />
 
     <fragment
@@ -26,13 +26,13 @@
     <fragment
         android:id="@+id/nav_age_image"
         android:name="ru.mirea.blinnikovkm.mireaproject.ui.ageimage.AgeImageFragment"
-        android:label="@string/ageImage"
+        android:label="@string/age_image"
         tools:layout="@layout/fragment_age_image" />
 
     <fragment
         android:id="@+id/nav_audio_changer"
         android:name="ru.mirea.blinnikovkm.mireaproject.ui.audiochanger.AudioChangerFragment"
-        android:label="@string/audioChanger"
+        android:label="@string/audio_changer"
         tools:layout="@layout/fragment_audio_changer" />
 
     <fragment
@@ -50,7 +50,13 @@
     <fragment
         android:id="@+id/nav_file_processing"
         android:name="ru.mirea.blinnikovkm.mireaproject.ui.fileprocessing.FileProcessingFragment"
-        android:label="@string/fileEncryption"
-        tools:layout="@layout/fragment_profile" />
+        android:label="@string/file_encryption"
+        tools:layout="@layout/fragment_file_processing" />
+
+    <fragment
+        android:id="@+id/nav_year_in_history"
+        android:name="ru.mirea.blinnikovkm.mireaproject.ui.yearinhistory.YearInHistoryFragment"
+        android:label="@string/year_in_history"
+        tools:layout="@layout/fragment_year_in_history" />
 
 </navigation>

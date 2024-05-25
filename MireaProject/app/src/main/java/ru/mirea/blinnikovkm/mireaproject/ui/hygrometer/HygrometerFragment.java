@@ -38,17 +38,6 @@ public class HygrometerFragment extends Fragment {
         sensorManager.registerListener(workingSensorEventListener, humiditySensor, SensorManager.SENSOR_DELAY_NORMAL);
         humidityButton = binding.humidityButton;
         humidityTextView = binding.humidityTextView;
-        int fineLocationPermissionStatus = ContextCompat.checkSelfPermission(inflater.getContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION);
-        int coarseLocationPermissionStatus = ContextCompat.checkSelfPermission(inflater.getContext(),
-                android.Manifest.permission.ACCESS_COARSE_LOCATION);
-        if (fineLocationPermissionStatus == PackageManager.PERMISSION_GRANTED &&
-                coarseLocationPermissionStatus == PackageManager.PERMISSION_GRANTED) {
-            isWork = true;
-        } else {
-            requestPermissions(new String[] {android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_CODE_PERMISSION);
-        }
         humidityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,16 +87,5 @@ public class HygrometerFragment extends Fragment {
         super.onResume();
         sensorManager.registerListener(workingSensorEventListener, humiditySensor,
                 SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_PERMISSION) {
-            isWork = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
-            if (!isWork) {
-                humidityButton.setEnabled(false);
-            }
-        }
     }
 }
