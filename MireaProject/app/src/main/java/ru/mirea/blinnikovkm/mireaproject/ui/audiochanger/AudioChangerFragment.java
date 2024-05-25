@@ -40,6 +40,7 @@ public class AudioChangerFragment extends Fragment {
     float speed;
     int pitchInSemitones;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAudioChangerBinding.inflate(inflater, container, false);

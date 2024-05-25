@@ -21,6 +21,7 @@ import ru.mirea.blinnikovkm.mireaproject.databinding.FragmentProfileBinding;
 public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final SharedPreferences secureSharedPreferences;

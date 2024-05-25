@@ -42,6 +42,7 @@ public class AgeImageFragment extends Fragment {
     private Button blackAndWhiteButton = null;
     private Button sepiaButton = null;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAgeImageBinding.inflate(inflater, container, false);

@@ -30,6 +30,7 @@ public class HygrometerFragment extends Fragment {
     private TextView humidityTextView = null;
     private float humidity = -1;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHygrometerBinding.inflate(inflater, container, false);

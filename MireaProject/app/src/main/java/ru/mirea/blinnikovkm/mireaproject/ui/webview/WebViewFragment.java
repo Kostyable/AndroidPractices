@@ -18,6 +18,7 @@ public class WebViewFragment extends Fragment {
     private FragmentWebViewBinding binding;
 
     @SuppressLint("SetJavaScriptEnabled")
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentWebViewBinding.inflate(inflater, container, false);

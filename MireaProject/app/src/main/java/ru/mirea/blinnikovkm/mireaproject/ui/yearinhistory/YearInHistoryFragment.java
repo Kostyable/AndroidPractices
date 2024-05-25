@@ -23,6 +23,7 @@ import ru.mirea.blinnikovkm.mireaproject.databinding.FragmentYearInHistoryBindin
 public class YearInHistoryFragment extends Fragment {
     private FragmentYearInHistoryBinding binding;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentYearInHistoryBinding.inflate(inflater, container, false);
