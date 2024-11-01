@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.mirea.blinnikovkm.lesson10.presentation.MainActivity">
+    tools:context="ru.mirea.blinnikovkm.lesson11.presentation.MainActivity">
 
     <TextView
         android:id="@+id/textViewMovie"

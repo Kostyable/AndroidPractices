@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'ru.mirea.blinnikovkm.lesson10'
+    namespace 'ru.mirea.blinnikovkm.lesson11'
     compileSdk 34
 
     defaultConfig {
-        applicationId "ru.mirea.blinnikovkm.lesson10"
+        applicationId "ru.mirea.blinnikovkm.lesson11"
         minSdk 26
         targetSdk 34
         versionCode 1
@@ -23,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
