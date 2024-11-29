@@ -1,4 +1,4 @@
 package ru.mirea.blinnikovkm.data.data.storage.models;
 
-public class Currency {
+public class AttractionEntity {
 }

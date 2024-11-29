@@ -1,18 +1,21 @@
-package ru.mirea.blinnikovkm.domain.domain.models;
+package ru.mirea.blinnikovkm.data.data.storage.models;
 
-public class Currency {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "countries")
+public class CountryEntity {
+
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
     private String code;
-    private double exchangeRate;
+    private String flagUrl;
 
-    public Currency() {}
-
-    public Currency(int id, String name, String code, double exchangeRate) {
-        this.id = id;
+    public CountryEntity(String name, String code, String flagUrl) {
         this.name = name;
         this.code = code;
-        this.exchangeRate = exchangeRate;
+        this.flagUrl = flagUrl;
     }
 
     public int getId() {
@@ -39,11 +42,11 @@ public class Currency {
         this.code = code;
     }
 
-    public double getExchangeRate() {
-        return exchangeRate;
+    public String getFlagUrl() {
+        return flagUrl;
     }
 
-    public void setExchangeRate(double exchangeRate) {
-        this.exchangeRate = exchangeRate;
+    public void setFlagUrl(String flagUrl) {
+        this.flagUrl = flagUrl;
     }
 }
