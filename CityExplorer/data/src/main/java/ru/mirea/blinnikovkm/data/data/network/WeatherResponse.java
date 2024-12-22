@@ -1,39 +1,70 @@
 package ru.mirea.blinnikovkm.data.data.network;
 
-import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class WeatherResponse {
-
-    @SerializedName("main")
     private Main main;
-
-    @SerializedName("weather")
-    private List<WeatherCondition> weather;
+    private List<WeatherDescription> weather;
+    private Wind wind;
+    private int humidity;
+    private int pressure;
 
     public Main getMain() {
         return main;
     }
 
-    public List<WeatherCondition> getWeather() {
+    public List<WeatherDescription> getWeather() {
         return weather;
     }
 
-    public static class Main {
-        @SerializedName("temp")
-        private float temperature;
+    public Wind getWind() {
+        return wind;
+    }
 
-        public float getTemperature() {
-            return temperature;
+    public int getHumidity() {
+        return main.humidity;
+    }
+
+    public int getPressure() {
+        return main.pressure;
+    }
+
+    public static class Main {
+        private double temp;
+        private int pressure;
+        private int humidity;
+
+        public double getTemp() {
+            return temp;
+        }
+
+        public int getPressure() {
+            return pressure;
+        }
+
+        public int getHumidity() {
+            return humidity;
         }
     }
 
-    public static class WeatherCondition {
-        @SerializedName("description")
-        private String description;
+    public static class WeatherDescription {
+        private String main;
 
-        public String getDescription() {
-            return description;
+        public String getMain() {
+            return main;
+        }
+    }
+
+    public static class Wind {
+        private double speed;
+        private int deg;
+
+        public double getSpeed() {
+            return speed;
+        }
+
+        public int getDeg() {
+            return deg;
         }
     }
 }

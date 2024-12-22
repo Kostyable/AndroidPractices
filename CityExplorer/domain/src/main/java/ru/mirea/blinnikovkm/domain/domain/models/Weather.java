@@ -1,69 +1,70 @@
 package ru.mirea.blinnikovkm.domain.domain.models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Weather {
-    private String temperature;
-    private String condition;
-    private String windSpeed;
-    private String windDirection;
-    private String humidity;
-    private String pressure;
+    private final double temperature;
+    private final String description;
+    private final double windSpeed;
+    private final int windDirection;
+    private int humidity;
+    private int pressure;
 
-    public Weather() {}
-
-    public Weather(String temperature, String condition, String windSpeed, String windDirection, String humidity, String pressure) {
+    public Weather(double temperature, String description, double windSpeed, int windDirection, int humidity, int pressure) {
         this.temperature = temperature;
-        this.condition = condition;
+        this.description = description;
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
         this.humidity = humidity;
         this.pressure = pressure;
     }
 
-    public String getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(String temperature) {
-        this.temperature = temperature;
+    public String getDescription() {
+        return translateDescription(this.description);
     }
 
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-    public String getWindSpeed() {
+    public double getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(String windSpeed) {
-        this.windSpeed = windSpeed;
-    }
-
     public String getWindDirection() {
-        return windDirection;
+        return translateWindDirection(this.windDirection);
     }
 
-    public void setWindDirection(String windDirection) {
-        this.windDirection = windDirection;
-    }
-
-    public String getHumidity() {
+    public int getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(String humidity) {
-        this.humidity = humidity;
+    public int getPressure() {
+        return (int) Math.ceil(this.pressure / 1.33);
     }
 
-    public String getPressure() {
-        return pressure;
+    public String formatWeather() {
+        return String.format(
+                "Погода:\nТемпература: %.1f°C\nОписание: %s\nВетер: %.1f м/с (%s)\nВлажность: %d%%\nДавление: %d мм рт. ст.",
+                getTemperature(), getDescription(), getWindSpeed(), getWindDirection(), getHumidity(), getPressure()
+        );
     }
 
-    public void setPressure(String pressure) {
-        this.pressure = pressure;
+    public static String translateWindDirection(int degrees) {
+        String[] directions = {"С", "С-В", "В", "Ю-В", "Ю", "Ю-З", "З", "С-З"};
+        return directions[(int) Math.round(((double) degrees % 360) / 45) % 8];
+    }
+
+    private static String translateDescription(String description) {
+        Map<String, String> translations = new HashMap<>();
+        translations.put("clear", "ясно");
+        translations.put("clouds", "облачно");
+        translations.put("rain", "дождь");
+        translations.put("thunderstorm", "гроза");
+        translations.put("snow", "снег");
+        translations.put("mist", "туман");
+
+        return translations.getOrDefault(description.toLowerCase(), "неизвестно");
     }
 }

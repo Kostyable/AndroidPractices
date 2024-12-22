@@ -7,16 +7,14 @@ public class CountryMapper {
     public static Country mapToDomain(CountryEntity countryEntity) {
         return new Country(
                 countryEntity.getName(),
-                countryEntity.getCode(),
-                countryEntity.getFlagUrl()
+                countryEntity.getCode()
         );
     }
 
     public static CountryEntity mapToData(Country country) {
         return new CountryEntity(
                 country.getName(),
-                country.getCode(),
-                country.getFlagUrl() != null ? country.getFlagUrl() : ""
+                country.getCode()
         );
     }
 }

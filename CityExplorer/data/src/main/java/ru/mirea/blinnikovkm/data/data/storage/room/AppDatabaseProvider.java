@@ -28,16 +28,16 @@ public class AppDatabaseProvider {
         CityDao cityDao = appDatabase.cityDao();
 
         if (countryDao.getAllCountries().isEmpty()) {
-            CountryEntity usa = new CountryEntity("Соединенные Штаты", "US", "https://example.com/flags/us.png");
-            CountryEntity france = new CountryEntity("Франция", "FR", "https://example.com/flags/fr.png");
-            CountryEntity germany = new CountryEntity("Германия", "DE", "https://example.com/flags/de.png");
-            CountryEntity italy = new CountryEntity("Италия", "IT", "https://example.com/flags/it.png");
-            CountryEntity uk = new CountryEntity("Великобритания", "GB", "https://example.com/flags/gb.png");
-            CountryEntity japan = new CountryEntity("Япония", "JP", "https://example.com/flags/jp.png");
-            CountryEntity russia = new CountryEntity("Россия", "RU", "https://example.com/flags/ru.png");
-            CountryEntity australia = new CountryEntity("Австралия", "AU", "https://example.com/flags/au.png");
-            CountryEntity china = new CountryEntity("Китай", "CN", "https://example.com/flags/cn.png");
-            CountryEntity brazil = new CountryEntity("Бразилия", "BR", "https://example.com/flags/br.png");
+            CountryEntity usa = new CountryEntity("США", "US");
+            CountryEntity france = new CountryEntity("Франция", "FR");
+            CountryEntity germany = new CountryEntity("Германия", "DE");
+            CountryEntity italy = new CountryEntity("Италия", "IT");
+            CountryEntity uk = new CountryEntity("Великобритания", "GB");
+            CountryEntity japan = new CountryEntity("Япония", "JP");
+            CountryEntity russia = new CountryEntity("Россия", "RU");
+            CountryEntity australia = new CountryEntity("Австралия", "AU");
+            CountryEntity china = new CountryEntity("Китай", "CN");
+            CountryEntity brazil = new CountryEntity("Бразилия", "BR");
 
             countryDao.insert(usa);
             countryDao.insert(france);

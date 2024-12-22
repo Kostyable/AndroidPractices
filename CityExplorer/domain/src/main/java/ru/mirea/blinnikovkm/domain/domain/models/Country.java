@@ -4,12 +4,10 @@ public class Country {
 
     private String name;
     private String code;
-    private String flagUrl;
 
-    public Country(String name, String code, String flagUrl) {
+    public Country(String name, String code) {
         this.name = name;
         this.code = code;
-        this.flagUrl = flagUrl;
     }
 
     public String getName() {
@@ -26,13 +24,5 @@ public class Country {
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public String getFlagUrl() {
-        return flagUrl;
-    }
-
-    public void setFlagUrl(String flagUrl) {
-        this.flagUrl = flagUrl;
     }
 }

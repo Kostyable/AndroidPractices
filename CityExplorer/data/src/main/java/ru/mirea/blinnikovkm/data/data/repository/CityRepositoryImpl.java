@@ -22,7 +22,6 @@ public class CityRepositoryImpl implements CityRepository {
         this.countryDao = AppDatabaseProvider.getInstance(context).countryDao();
     }
 
-    @Override
     public List<City> getAllCities() {
         List<CityEntity> cityEntities = cityDao.getAllCities();
         List<City> cities = new ArrayList<>();
@@ -30,10 +29,25 @@ public class CityRepositoryImpl implements CityRepository {
             String countryName = countryDao.getAllCountries().stream()
                     .filter(country -> country.getId() == entity.getCountryId())
                     .findFirst()
-                    .map(country -> country.getName())
+                    .map(CountryEntity::getName)
                     .orElse("Unknown Country");
-            cities.add(new City(entity.getId(), entity.getName(), countryName,
-                    entity.getDescription(), entity.getImageUrl()));
+            String countryCode = countryDao.getAllCountries().stream()
+                    .filter(country -> country.getId() == entity.getCountryId())
+                    .findFirst()
+                    .map(CountryEntity::getCode)
+                    .orElse("UNKNOWN");
+
+            String flagUrl = "https://flagcdn.com/w320/" + countryCode.toLowerCase() + ".png";
+
+            cities.add(new City(
+                    entity.getId(),
+                    entity.getName(),
+                    countryName,
+                    countryCode,
+                    entity.getDescription(),
+                    entity.getImageUrl(),
+                    flagUrl
+            ));
         }
         return cities;
     }
@@ -43,15 +57,18 @@ public class CityRepositoryImpl implements CityRepository {
         CityEntity cityEntity = cityDao.getCityById(cityId);
         if (cityEntity != null) {
             CountryEntity countryEntity = countryDao.getCountryById(cityEntity.getCountryId());
+            String flagUrl = "https://flagcdn.com/w320/" + countryEntity.getCode().toLowerCase() + ".png";
+
             return new City(
                     cityEntity.getId(),
                     cityEntity.getName(),
                     countryEntity.getName(),
+                    countryEntity.getCode(),
                     cityEntity.getDescription(),
-                    cityEntity.getImageUrl()
+                    cityEntity.getImageUrl(),
+                    flagUrl
             );
         }
         return null;
     }
 }
-

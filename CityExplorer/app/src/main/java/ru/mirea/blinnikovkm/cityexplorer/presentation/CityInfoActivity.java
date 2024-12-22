@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import ru.mirea.blinnikovkm.cityexplorer.R;
-import ru.mirea.blinnikovkm.data.data.repository.RepositoryFactory;
+import ru.mirea.blinnikovkm.domain.domain.usecases.GetWeatherByCity;
+import ru.mirea.blinnikovkm.data.data.repository.WeatherRepositoryImpl;
+import ru.mirea.blinnikovkm.data.data.repository.CityRepositoryImpl;
 
 public class CityInfoActivity extends AppCompatActivity {
     private CityInfoViewModel cityInfoViewModel;
@@ -29,11 +31,15 @@ public class CityInfoActivity extends AppCompatActivity {
 
         cityInfoViewModel = new ViewModelProvider(
                 this,
-                new CityInfoViewModelFactory(RepositoryFactory.getCityRepository(this))
+                new CityInfoViewModelFactory(
+                        new CityRepositoryImpl(this),
+                        new GetWeatherByCity(new WeatherRepositoryImpl())
+                )
         ).get(CityInfoViewModel.class);
 
         observeCity(cityId);
     }
+
 
     private void observeCity(int cityId) {
         cityInfoViewModel.getCity(cityId).observe(this, city -> {
@@ -46,9 +52,19 @@ public class CityInfoActivity extends AppCompatActivity {
                 int imageResource = getResources().getIdentifier(city.getImagePath(), "drawable", getPackageName());
                 if (imageResource != 0) {
                     cityImageView.setImageResource(imageResource);
-                } else {
-                    cityImageView.setImageResource(R.drawable.default_city_image);
                 }
+
+                observeWeather(city.getName(), city.getCountryCode(), "95656fdcf88ba161d6274a9bbaad1750", "metric");
+            }
+        });
+    }
+
+    private void observeWeather(String cityName, String countryCode, String apiKey, String units) {
+        cityInfoViewModel.getWeatherForCity(cityName, countryCode, apiKey, units).observe(this, weather -> {
+            if (weather != null) {
+                ((TextView) findViewById(R.id.weather_info)).setText(weather.formatWeather());
+            } else {
+                ((TextView) findViewById(R.id.weather_info)).setText("Ошибка загрузки погоды");
             }
         });
     }

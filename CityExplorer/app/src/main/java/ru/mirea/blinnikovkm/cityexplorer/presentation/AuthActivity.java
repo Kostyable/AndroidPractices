@@ -53,6 +53,11 @@ public class AuthActivity extends AppCompatActivity {
             String email = emailInput.getText().toString();
             String password = passwordInput.getText().toString();
 
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             if (isRegisterMode) {
                 String repeatPassword = repeatPasswordInput.getText().toString();
                 if (!password.equals(repeatPassword)) {
@@ -95,10 +100,10 @@ public class AuthActivity extends AppCompatActivity {
             public void onChanged(Boolean isLoading) {
                 if (isLoading != null && isLoading) {
                     actionButton.setEnabled(false);
-                    actionButton.setText("Loading...");
+                    actionButton.setText("Загрузка...");
                 } else {
                     actionButton.setEnabled(true);
-                    actionButton.setText(isRegisterMode ? "Register" : "Login");
+                    actionButton.setText(isRegisterMode ? "Зарегистрироваться" : "Войти");
                 }
             }
         });

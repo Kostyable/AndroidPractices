@@ -1,49 +1,30 @@
 package ru.mirea.blinnikovkm.domain.domain.models;
 
+import java.util.Map;
+
 public class Currency {
-    private int id;
-    private String name;
-    private String code;
-    private double exchangeRate;
+    private final String baseCurrency;
+    private final Map<String, Double> exchangeRates;
 
-    public Currency() {}
-
-    public Currency(int id, String name, String code, double exchangeRate) {
-        this.id = id;
-        this.name = name;
-        this.code = code;
-        this.exchangeRate = exchangeRate;
+    public Currency(String baseCurrency, Map<String, Double> exchangeRates) {
+        this.baseCurrency = baseCurrency;
+        this.exchangeRates = exchangeRates;
     }
 
-    public int getId() {
-        return id;
+    public String getBaseCurrency() {
+        return baseCurrency;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Map<String, Double> getExchangeRates() {
+        return exchangeRates;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public double getExchangeRate() {
-        return exchangeRate;
-    }
-
-    public void setExchangeRate(double exchangeRate) {
-        this.exchangeRate = exchangeRate;
+    public String formatCurrencyRates() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Основная валюта: ").append(baseCurrency).append("\n");
+        for (Map.Entry<String, Double> entry : exchangeRates.entrySet()) {
+            builder.append(entry.getKey()).append(": ").append(String.format("%.2f", entry.getValue())).append("\n");
+        }
+        return builder.toString();
     }
 }

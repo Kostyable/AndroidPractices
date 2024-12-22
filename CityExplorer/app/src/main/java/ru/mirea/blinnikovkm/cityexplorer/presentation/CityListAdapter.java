@@ -3,12 +3,15 @@ package ru.mirea.blinnikovkm.cityexplorer.presentation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import ru.mirea.blinnikovkm.cityexplorer.R;
 import ru.mirea.blinnikovkm.domain.domain.models.City;
@@ -55,10 +58,13 @@ public class CityListAdapter extends ListAdapter<City, CityListAdapter.CityViewH
         private final TextView cityNameTextView;
         private final TextView countryNameTextView;
 
+        private final ImageView flagImageView;
+
         public CityViewHolder(@NonNull View itemView) {
             super(itemView);
             cityNameTextView = itemView.findViewById(R.id.city_name);
             countryNameTextView = itemView.findViewById(R.id.country_name);
+            flagImageView = itemView.findViewById(R.id.flag_image);
 
             itemView.setOnClickListener(v -> {
                 int position = getBindingAdapterPosition();
@@ -71,6 +77,12 @@ public class CityListAdapter extends ListAdapter<City, CityListAdapter.CityViewH
         public void bind(City city) {
             cityNameTextView.setText(city.getName());
             countryNameTextView.setText(city.getCountryName());
+
+            if (city.getFlagUrl() != null && !city.getFlagUrl().isEmpty()) {
+                Picasso.get()
+                        .load(city.getFlagUrl())
+                        .into(flagImageView);
+            }
         }
     }
 }
