@@ -6,4 +6,5 @@ import ru.mirea.blinnikovkm.domain.domain.models.City;
 
 public interface CityRepository {
     List<City> getAllCities();
+    City getCityById(int cityId);
 }

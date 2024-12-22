@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".presentation.CityListActivity" />
+        <activity android:name=".presentation.CityInfoActivity" />
     </application>
 
 </manifest>

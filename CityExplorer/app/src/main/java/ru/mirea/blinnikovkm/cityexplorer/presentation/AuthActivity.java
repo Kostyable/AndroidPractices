@@ -56,7 +56,7 @@ public class AuthActivity extends AppCompatActivity {
             if (isRegisterMode) {
                 String repeatPassword = repeatPasswordInput.getText().toString();
                 if (!password.equals(repeatPassword)) {
-                    Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 authViewModel.register(email, password);
@@ -76,17 +76,17 @@ public class AuthActivity extends AppCompatActivity {
             switchToLoginMode();
         } else {
             isRegisterMode = true;
-            actionButton.setText("Register");
+            actionButton.setText("Зарегистрироваться");
             repeatPasswordInput.setVisibility(View.VISIBLE);
-            toggleAuthMode.setText("Already have an account? Login");
+            toggleAuthMode.setText("Есть аккаунт? Войдите");
         }
     }
 
     private void switchToLoginMode() {
         isRegisterMode = false;
-        actionButton.setText("Login");
+        actionButton.setText("Войти");
         repeatPasswordInput.setVisibility(View.GONE);
-        toggleAuthMode.setText("Don't have an account? Register");
+        toggleAuthMode.setText("Нет аккаунта? Зарегистрируйтесь");
     }
 
     private void observeViewModel() {
@@ -116,7 +116,7 @@ public class AuthActivity extends AppCompatActivity {
             @Override
             public void onChanged(Boolean success) {
                 if (success != null && success) {
-                    Toast.makeText(AuthActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this, "Вход выполнен успешно", Toast.LENGTH_SHORT).show();
                     userSharedPrefs.setLoggedIn(true);
                     userSharedPrefs.setGuestMode(false);
                     navigateToMainScreen();
@@ -126,7 +126,7 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void continueAsGuest() {
-        Toast.makeText(this, "Continuing as Guest", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Вы вошли как гость", Toast.LENGTH_SHORT).show();
         userSharedPrefs.setLoggedIn(false);
         userSharedPrefs.setGuestMode(true);
         navigateToMainScreen();

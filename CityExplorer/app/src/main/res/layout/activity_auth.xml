@@ -16,14 +16,14 @@
         android:id="@+id/password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="Пароль"
         android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/repeat_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Repeat Password"
+        android:hint="Повторите пароль"
         android:inputType="textPassword"
         android:visibility="gone" />
 
@@ -31,14 +31,14 @@
         android:id="@+id/action_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Войти" />
 
     <TextView
         android:id="@+id/toggle_auth_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Don't have an account? Register"
+        android:text="Нет аккаунта? Зарегистрируйтесь"
         android:textColor="@android:color/holo_blue_dark"
         android:padding="8dp" />
 
@@ -46,7 +46,7 @@
         android:id="@+id/guest_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue as Guest"
+        android:text="Войти как гость"
         android:layout_marginTop="16dp" />
 
 </LinearLayout>

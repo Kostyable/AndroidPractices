@@ -25,4 +25,7 @@ public interface CityDao {
 
     @Query("DELETE FROM cities WHERE name = :cityName")
     void deleteByName(String cityName);
+
+    @Query("SELECT * FROM cities WHERE id = :cityId LIMIT 1")
+    CityEntity getCityById(int cityId);
 }

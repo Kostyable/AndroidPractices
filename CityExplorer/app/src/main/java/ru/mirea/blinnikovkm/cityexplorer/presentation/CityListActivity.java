@@ -1,5 +1,6 @@
 package ru.mirea.blinnikovkm.cityexplorer.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -32,9 +33,11 @@ public class CityListActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new CityListAdapter(city ->
-                Toast.makeText(this, "Selected city: " + city.getName(), Toast.LENGTH_SHORT).show()
-        );
+        adapter = new CityListAdapter(city -> {
+            Intent intent = new Intent(this, CityInfoActivity.class);
+            intent.putExtra("CITY_ID", city.getId());
+            startActivity(intent);
+        });
         recyclerView.setAdapter(adapter);
 
         observeViewModel();

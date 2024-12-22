@@ -28,26 +28,26 @@ public class AppDatabaseProvider {
         CityDao cityDao = appDatabase.cityDao();
 
         if (countryDao.getAllCountries().isEmpty()) {
-            CountryEntity usa = new CountryEntity("United States", "US", "https://example.com/flags/us.png");
-            CountryEntity france = new CountryEntity("France", "FR", "https://example.com/flags/fr.png");
-            CountryEntity germany = new CountryEntity("Germany", "DE", "https://example.com/flags/de.png");
-            CountryEntity italy = new CountryEntity("Italy", "IT", "https://example.com/flags/it.png");
-            CountryEntity spain = new CountryEntity("Spain", "ES", "https://example.com/flags/es.png");
-            CountryEntity japan = new CountryEntity("Japan", "JP", "https://example.com/flags/jp.png");
-            CountryEntity canada = new CountryEntity("Canada", "CA", "https://example.com/flags/ca.png");
-            CountryEntity australia = new CountryEntity("Australia", "AU", "https://example.com/flags/au.png");
-            CountryEntity india = new CountryEntity("India", "IN", "https://example.com/flags/in.png");
-            CountryEntity brazil = new CountryEntity("Brazil", "BR", "https://example.com/flags/br.png");
+            CountryEntity usa = new CountryEntity("Соединенные Штаты", "US", "https://example.com/flags/us.png");
+            CountryEntity france = new CountryEntity("Франция", "FR", "https://example.com/flags/fr.png");
+            CountryEntity germany = new CountryEntity("Германия", "DE", "https://example.com/flags/de.png");
+            CountryEntity italy = new CountryEntity("Италия", "IT", "https://example.com/flags/it.png");
+            CountryEntity uk = new CountryEntity("Великобритания", "GB", "https://example.com/flags/gb.png");
+            CountryEntity japan = new CountryEntity("Япония", "JP", "https://example.com/flags/jp.png");
+            CountryEntity russia = new CountryEntity("Россия", "RU", "https://example.com/flags/ru.png");
+            CountryEntity australia = new CountryEntity("Австралия", "AU", "https://example.com/flags/au.png");
+            CountryEntity china = new CountryEntity("Китай", "CN", "https://example.com/flags/cn.png");
+            CountryEntity brazil = new CountryEntity("Бразилия", "BR", "https://example.com/flags/br.png");
 
             countryDao.insert(usa);
             countryDao.insert(france);
             countryDao.insert(germany);
             countryDao.insert(italy);
-            countryDao.insert(spain);
+            countryDao.insert(uk);
             countryDao.insert(japan);
-            countryDao.insert(canada);
+            countryDao.insert(russia);
             countryDao.insert(australia);
-            countryDao.insert(india);
+            countryDao.insert(china);
             countryDao.insert(brazil);
         }
 
@@ -56,23 +56,23 @@ public class AppDatabaseProvider {
             int franceId = countryDao.getCountryByCode("FR").getId();
             int germanyId = countryDao.getCountryByCode("DE").getId();
             int italyId = countryDao.getCountryByCode("IT").getId();
-            int spainId = countryDao.getCountryByCode("ES").getId();
+            int ukId = countryDao.getCountryByCode("GB").getId();
             int japanId = countryDao.getCountryByCode("JP").getId();
-            int canadaId = countryDao.getCountryByCode("CA").getId();
+            int russiaId = countryDao.getCountryByCode("RU").getId();
             int australiaId = countryDao.getCountryByCode("AU").getId();
-            int indiaId = countryDao.getCountryByCode("IN").getId();
+            int chinaId = countryDao.getCountryByCode("CN").getId();
             int brazilId = countryDao.getCountryByCode("BR").getId();
 
-            cityDao.insert(new CityEntity("New York", "A major city in the United States known for its iconic skyline and culture.", "https://example.com/cities/nyc.jpg", 25.0f, "USD", usaId));
-            cityDao.insert(new CityEntity("Paris", "Capital of France, famous for its art, fashion, and landmarks.", "https://example.com/cities/paris.jpg", 18.0f, "EUR", franceId));
-            cityDao.insert(new CityEntity("Berlin", "Capital of Germany, known for its history and modern architecture.", "https://example.com/cities/berlin.jpg", 15.0f, "EUR", germanyId));
-            cityDao.insert(new CityEntity("Rome", "The capital of Italy, famous for its ancient history and monuments.", "https://example.com/cities/rome.jpg", 20.0f, "EUR", italyId));
-            cityDao.insert(new CityEntity("Madrid", "Capital of Spain, known for its art, culture, and vibrant lifestyle.", "https://example.com/cities/madrid.jpg", 22.0f, "EUR", spainId));
-            cityDao.insert(new CityEntity("Tokyo", "Capital of Japan, famous for its technology, culture, and cuisine.", "https://example.com/cities/tokyo.jpg", 30.0f, "JPY", japanId));
-            cityDao.insert(new CityEntity("Toronto", "The largest city in Canada, known for its multiculturalism and landmarks.", "https://example.com/cities/toronto.jpg", 10.0f, "CAD", canadaId));
-            cityDao.insert(new CityEntity("Sydney", "The largest city in Australia, known for its beaches and iconic Opera House.", "https://example.com/cities/sydney.jpg", 18.0f, "AUD", australiaId));
-            cityDao.insert(new CityEntity("Mumbai", "The financial capital of India, known for its film industry and vibrant culture.", "https://example.com/cities/mumbai.jpg", 32.0f, "INR", indiaId));
-            cityDao.insert(new CityEntity("Rio de Janeiro", "Known for its beaches, carnival, and the iconic Christ the Redeemer statue.", "https://example.com/cities/rio.jpg", 28.0f, "BRL", brazilId));
+            cityDao.insert(new CityEntity("Нью-Йорк", "Крупнейший город США, известный своим знаменитым горизонтом и культурой.", "new_york", usaId));
+            cityDao.insert(new CityEntity("Париж", "Столица Франции, известная искусством, модой и достопримечательностями.", "paris", franceId));
+            cityDao.insert(new CityEntity("Берлин", "Столица Германии, известная своей историей и современной архитектурой.", "berlin", germanyId));
+            cityDao.insert(new CityEntity("Рим", "Столица Италии, знаменитая своей древней историей и памятниками.", "rome", italyId));
+            cityDao.insert(new CityEntity("Лондон", "Столица Великобритании, известная своей историей, культурой и достопримечательностями.", "london", ukId));
+            cityDao.insert(new CityEntity("Токио", "Столица Японии, знаменитая своей технологией, культурой и кухней.", "tokyo", japanId));
+            cityDao.insert(new CityEntity("Москва", "Столица России, известная богатой историей и удивительной архитектурой.", "moscow", russiaId));
+            cityDao.insert(new CityEntity("Сидней", "Крупнейший город Австралии, известный пляжами и знаменитым оперным театром.", "sydney", australiaId));
+            cityDao.insert(new CityEntity("Шанхай", "Шумный мегаполис Китая, известный своим горизонтом и культурным наследием.", "shanghai", chinaId));
+            cityDao.insert(new CityEntity("Рио-де-Жанейро", "Известен пляжами, карнавалом и знаменитой статуей Христа-Искупителя.", "rio", brazilId));
         }
     }
 }

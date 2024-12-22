@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.mirea.blinnikovkm.data.data.storage.models.CityEntity;
+import ru.mirea.blinnikovkm.data.data.storage.models.CountryEntity;
 import ru.mirea.blinnikovkm.data.data.storage.room.AppDatabaseProvider;
 import ru.mirea.blinnikovkm.data.data.storage.room.dao.CityDao;
 import ru.mirea.blinnikovkm.data.data.storage.room.dao.CountryDao;
@@ -31,9 +32,26 @@ public class CityRepositoryImpl implements CityRepository {
                     .findFirst()
                     .map(country -> country.getName())
                     .orElse("Unknown Country");
-            cities.add(new City(entity.getId(), entity.getName(), countryName));
+            cities.add(new City(entity.getId(), entity.getName(), countryName,
+                    entity.getDescription(), entity.getImageUrl()));
         }
         return cities;
+    }
+
+    @Override
+    public City getCityById(int cityId) {
+        CityEntity cityEntity = cityDao.getCityById(cityId);
+        if (cityEntity != null) {
+            CountryEntity countryEntity = countryDao.getCountryById(cityEntity.getCountryId());
+            return new City(
+                    cityEntity.getId(),
+                    cityEntity.getName(),
+                    countryEntity.getName(),
+                    cityEntity.getDescription(),
+                    cityEntity.getImageUrl()
+            );
+        }
+        return null;
     }
 }
 

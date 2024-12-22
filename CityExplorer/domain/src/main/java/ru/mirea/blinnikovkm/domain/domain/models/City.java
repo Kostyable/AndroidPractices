@@ -6,11 +6,15 @@ public class City {
     private final int id;
     private final String name;
     private final String countryName;
+    private final String description;
+    private final String imagePath;
 
-    public City(int id, String name, String countryName) {
+    public City(int id, String name, String countryName, String description, String imagePath) {
         this.id = id;
         this.name = name;
         this.countryName = countryName;
+        this.description = description;
+        this.imagePath = imagePath;
     }
 
     public int getId() {
@@ -23,6 +27,14 @@ public class City {
 
     public String getCountryName() {
         return countryName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getImagePath() {
+        return imagePath;
     }
 
     @Override
