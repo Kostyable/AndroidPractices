@@ -1,67 +1,42 @@
 package ru.mirea.blinnikovkm.domain.domain.models;
 
-public class City {
-    private String name;
-    private String description;
-    private String imageUrl;
-    private float temperature;
-    private String currencyCode;
-    private int countryId;
+import java.util.Objects;
 
-    public City(String name, String description, String imageUrl, float temperature, String currencyCode, int countryId) {
+public class City {
+    private final int id;
+    private final String name;
+    private final String countryName;
+
+    public City(int id, String name, String countryName) {
+        this.id = id;
         this.name = name;
-        this.description = description;
-        this.imageUrl = imageUrl;
-        this.temperature = temperature;
-        this.currencyCode = currencyCode;
-        this.countryId = countryId;
+        this.countryName = countryName;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public String getDescription() {
-        return description;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return id == city.id &&
+                Objects.equals(name, city.name) &&
+                Objects.equals(countryName, city.countryName);
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public float getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(float temperature) {
-        this.temperature = temperature;
-    }
-
-    public String getCurrencyCode() {
-        return currencyCode;
-    }
-
-    public void setCurrencyCode(String currencyCode) {
-        this.currencyCode = currencyCode;
-    }
-
-    public int getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(int countryId) {
-        this.countryId = countryId;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, countryName);
     }
 }

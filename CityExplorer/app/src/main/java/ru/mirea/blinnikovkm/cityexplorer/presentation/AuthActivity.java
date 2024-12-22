@@ -7,18 +7,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import ru.mirea.blinnikovkm.cityexplorer.R;
+import ru.mirea.blinnikovkm.data.data.repository.RepositoryFactory;
 import ru.mirea.blinnikovkm.data.data.storage.sharedprefs.UserSharedPrefs;
 import ru.mirea.blinnikovkm.domain.domain.repository.AuthRepository;
-import ru.mirea.blinnikovkm.domain.domain.usecases.Login;
-import ru.mirea.blinnikovkm.domain.domain.usecases.Register;
-import ru.mirea.blinnikovkm.data.data.repository.RepositoryFactory;
 
 public class AuthActivity extends AppCompatActivity {
-    private Login loginUseCase;
-    private Register registerUseCase;
+    private AuthViewModel authViewModel;
 
     private EditText emailInput;
     private EditText passwordInput;
@@ -36,8 +36,9 @@ public class AuthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_auth);
 
         AuthRepository authRepository = RepositoryFactory.getAuthRepository();
-        loginUseCase = new Login(authRepository);
-        registerUseCase = new Register(authRepository);
+
+        authViewModel = new ViewModelProvider(this, new AuthViewModelFactory(authRepository))
+                .get(AuthViewModel.class);
 
         userSharedPrefs = new UserSharedPrefs(this);
 
@@ -58,14 +59,16 @@ public class AuthActivity extends AppCompatActivity {
                     Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                register(email, password);
+                authViewModel.register(email, password);
             } else {
-                login(email, password);
+                authViewModel.login(email, password);
             }
         });
 
         toggleAuthMode.setOnClickListener(v -> toggleMode());
         guestButton.setOnClickListener(v -> continueAsGuest());
+
+        observeViewModel();
     }
 
     private void toggleMode() {
@@ -79,21 +82,6 @@ public class AuthActivity extends AppCompatActivity {
         }
     }
 
-    private void register(String email, String password) {
-        registerUseCase.execute(email, password, new AuthRepository.AuthCallback() {
-            @Override
-            public void onSuccess() {
-                Toast.makeText(AuthActivity.this, "Registration successful! Please log in.", Toast.LENGTH_SHORT).show();
-                switchToLoginMode();
-            }
-
-            @Override
-            public void onError(String errorMessage) {
-                Toast.makeText(AuthActivity.this, "Registration failed: " + errorMessage, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
     private void switchToLoginMode() {
         isRegisterMode = false;
         actionButton.setText("Login");
@@ -101,19 +89,38 @@ public class AuthActivity extends AppCompatActivity {
         toggleAuthMode.setText("Don't have an account? Register");
     }
 
-    private void login(String email, String password) {
-        loginUseCase.execute(email, password, new AuthRepository.AuthCallback() {
+    private void observeViewModel() {
+        authViewModel.isLoading().observe(this, new Observer<Boolean>() {
             @Override
-            public void onSuccess() {
-                Toast.makeText(AuthActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                userSharedPrefs.setLoggedIn(true);
-                userSharedPrefs.setGuestMode(false);
-                navigateToMainScreen();
+            public void onChanged(Boolean isLoading) {
+                if (isLoading != null && isLoading) {
+                    actionButton.setEnabled(false);
+                    actionButton.setText("Loading...");
+                } else {
+                    actionButton.setEnabled(true);
+                    actionButton.setText(isRegisterMode ? "Register" : "Login");
+                }
             }
+        });
 
+        authViewModel.getErrorMessage().observe(this, new Observer<String>() {
             @Override
-            public void onError(String errorMessage) {
-                Toast.makeText(AuthActivity.this, "Login failed: " + errorMessage, Toast.LENGTH_SHORT).show();
+            public void onChanged(String errorMessage) {
+                if (errorMessage != null) {
+                    Toast.makeText(AuthActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        authViewModel.getLoginSuccess().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean success) {
+                if (success != null && success) {
+                    Toast.makeText(AuthActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                    userSharedPrefs.setLoggedIn(true);
+                    userSharedPrefs.setGuestMode(false);
+                    navigateToMainScreen();
+                }
             }
         });
     }
@@ -126,9 +133,8 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void navigateToMainScreen() {
-        Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+        Intent intent = new Intent(AuthActivity.this, CityListActivity.class);
         startActivity(intent);
         finish();
     }
 }
-
