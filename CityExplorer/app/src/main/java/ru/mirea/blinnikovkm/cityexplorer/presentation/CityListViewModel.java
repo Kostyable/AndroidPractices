@@ -1,7 +1,7 @@
 package ru.mirea.blinnikovkm.cityexplorer.presentation;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.List;
@@ -10,8 +10,8 @@ import ru.mirea.blinnikovkm.domain.domain.models.City;
 import ru.mirea.blinnikovkm.domain.domain.repository.CityRepository;
 
 public class CityListViewModel extends ViewModel {
+    private final MediatorLiveData<List<City>> citiesLiveData = new MediatorLiveData<>();
     private final CityRepository cityRepository;
-    private final MutableLiveData<List<City>> cities = new MutableLiveData<>();
 
     public CityListViewModel(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
@@ -19,10 +19,11 @@ public class CityListViewModel extends ViewModel {
     }
 
     public LiveData<List<City>> getCities() {
-        return cities;
+        return citiesLiveData;
     }
 
     private void loadCities() {
-        cities.setValue(cityRepository.getAllCities());
+        List<City> cities = cityRepository.getAllCities();
+        citiesLiveData.setValue(cities);
     }
 }

@@ -36,3 +36,4 @@ public class CityRepositoryImpl implements CityRepository {
         return cities;
     }
 }
+
